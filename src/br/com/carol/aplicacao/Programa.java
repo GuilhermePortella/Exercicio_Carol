@@ -39,7 +39,7 @@ public class Programa {
 
 			int veiculo = 0;
 			int veiculoCount = 0;
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 3; i++) {
 				veiculoCount++;
 				System.out.println();
 				System.out.println("______________________________");
@@ -69,7 +69,7 @@ public class Programa {
 						System.out.println("Quantas vezes o acelerador serï¿½ acionado: ");
 						System.out.println();
 						Integer qtdAcelerador = console.nextInt();
-						veic.getAceleradorMeta(qtdAcelerador);
+						veic.setAceleradorMeta(qtdAcelerador);
 						veic.saidaTxt();
 						veic.setVelocidadeAtual(67.0);
 						veiculosList.add(veic);
@@ -86,10 +86,17 @@ public class Programa {
 				System.out.println();
 				String opt = consoleFinal.nextLine();
 
-				if ("S".equals(opt.toUpperCase())) {
+				if ("S".equals(opt.toUpperCase()))  {
 					System.out.println("Deseja iniciar o teste (S/N)?: ");
-					iniciarTestes(veiculosList);
+					 try {
+						 iniciarTestes(veiculosList);
+						 
+					} catch (Exception e) {
+						// TODO: handle exception
+						System.out.println(e.getLocalizedMessage());
+					} 
 					sair = false;
+					
 					break;
 				}
 			}
@@ -99,69 +106,17 @@ public class Programa {
 
 	public static void iniciarTestes(List<Veiculo> veiculos) {
 
-		String M = "Moto";
-		String C = "Caminhao";
-		String A = "Carro";
-		System.out.println(veiculos.size());
 		for (Veiculo veiculo : veiculos) {
+						
+			veiculo.setVelocidadeAtual(veiculo.getVelocidadeAtual() + veiculo.getAceleracao() * veiculo.getAceleradorMeta());
 			
-			// Distancia percorrida
-			if (veiculo.tipo == C) {
-
-				veiculo.setDistanciaPercorrida(10.0);
-
-			} else if (veiculo.tipo == M) {
-				veiculo.setDistanciaPercorrida(20.0);
-
-			} else {
-				veiculo.setDistanciaPercorrida(15.0);
-			}
+			veiculo.setConsumoAtual(veiculo.getConsumoMeta());
 			
-			//Consumo de Combustível
+			veiculo.setDistanciaPercorrida(veiculo.getDistanciaMeta());
 			
-				if (veiculo.tipo == C) {// 10
-					
-					veiculo.setConsumoAtual(veiculo.getCapacidadeMaximaDeCombustivel() - veiculo.getDistanciaPercorrida());
-			
-				} else if (veiculo.tipo == M) {// 20
-					veiculo.setConsumoAtual(veiculo.getCapacidadeMaximaDeCombustivel() - veiculo.getDistanciaPercorrida());
-					
-				} else {// 15
-					veiculo.setConsumoAtual(veiculo.getCapacidadeMaximaDeCombustivel() - veiculo.getDistanciaPercorrida());
-				}
-			
-
-			// A aceleraï¿½ï¿½o aumentando respeitando o parï¿½metro de acrï¿½scimo sem
-			// ultrapassar a velocidade mï¿½xima;
-
-			// distï¿½ncia percorrida aumentando sem ultrapassar a distï¿½ncia mï¿½xima a
-			// ser percorrida utilizando-se a quantidade de combustï¿½vel informada;
-			
-			
-			//Capacidade Máxima de Combustível
-			if (veiculo.tipo == C) {
-				veiculo.setCapacidadeMaximaDeCombustivel(250);
-
-			} else if (veiculo.tipo == M) {
-				veiculo.setCapacidadeMaximaDeCombustivel(25);
-
-			} else {
-				veiculo.setCapacidadeMaximaDeCombustivel(75);
-			}
-
-			
-			//Frenagem
-			if (veiculo.tipo == C) {
-				veiculo.setFrenagem(veiculo.getVelocidadeAtual() / 2);
-
-			} else if (veiculo.tipo == M) {
-				veiculo.setFrenagem(veiculo.getVelocidadeAtual() / 10);
-
-			} else {
-				veiculo.setFrenagem(veiculo.getVelocidadeAtual() / 10);
-			}
 			veiculo.saidaTxt();
-
+			
+			
 		}
 
 	}

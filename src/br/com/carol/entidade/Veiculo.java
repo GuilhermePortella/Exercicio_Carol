@@ -20,14 +20,14 @@ public abstract class Veiculo implements IVeiculo {
 	protected Integer capacidadeMaximaDeCombustivel=0;
 
 
-
+	@Override
 	public void saidaTxt(){
 
 		System.out.println("______________________________");
 		System.out.println();
 		System.out.println("Tipo de Veículo.: "+ tipo);
 		System.out.println("Modelo.: "+ modelo);
-		System.out.println("Capacidade Máxima de Combustível.:" + capacidadeMaximaDeCombustivel);
+		System.out.println("Capacidade Máxima de Combustível.:" + getCapacidadeMaximaDeCombustivel());
 		if(velocidadeAtual>0) {
 			System.out.println("Velocidade Final Alcançada.:" + velocidadeAtual);
 		}else {
@@ -35,7 +35,7 @@ public abstract class Veiculo implements IVeiculo {
 		}
 		System.out.println("Distância percorrida.:" + distanciaPercorrida);
 		System.out.println("Consumo de Combustível.:"+ consumoAtual);
-		System.out.println("Frenagem.:"+ frenagem);
+		System.out.println("Frenagem.:"+ getFrenagem());
 
  	}
 
@@ -53,7 +53,7 @@ public abstract class Veiculo implements IVeiculo {
 	}
 
 	public Double getDistanciaPercorrida() {
-		return distanciaPercorrida;
+		return (double) (getAutonomia() * getCapacidadeMaximaDeCombustivel());
 	}
 
 	public void setDistanciaPercorrida(Double distanciaPercorrida) {
@@ -134,7 +134,7 @@ public abstract class Veiculo implements IVeiculo {
 	}
 
 	public Double getConsumoAtual() {
-		return consumoAtual;
+		return getDistanciaPercorrida()/getCapacidadeMaximaDeCombustivel();
 	}
 
 	public void setConsumoAtual(Double consumoAtual) {
@@ -149,7 +149,7 @@ public abstract class Veiculo implements IVeiculo {
 		this.consumoMeta = consumoMeta;
 	}
 
-	public Integer getAceleradorMeta(Integer qtdAcelerador) {
+	public Integer getAceleradorMeta() {
 		return aceleradorMeta;
 	}
 

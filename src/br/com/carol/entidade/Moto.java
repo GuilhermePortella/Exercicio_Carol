@@ -4,54 +4,33 @@ public class Moto extends Veiculo{
 
 
 
-    @Override
-    public String entrada() {
-        return null;
-    }
-
-    @Override
-    public String saida() {
-        return null;
-    }
-	    
-	public void velocidade() {
-
-		Double acelerar = getAceleracao();
-		Double velocidade = getVelocidadeAtual();
-
-		if (acelerar < 3) {
-			System.out.println("É preciso ter no mínimo 3 acelerações");
-		} else {
-			for (int i = 0; i < acelerar; i++) {
-				if (velocidade >= getVelocidadeMaxima()) {
-					
-					velocidade = (double) getVelocidadeMaxima();
-					
-					setVelocidadeAtual(velocidade);
-					
-				} else {
-					
-					velocidade += getAceleracao();
-					
-					setVelocidadeAtual(500.0);
-					
-				}
-			}
-		}
-		
-	}
-	
-	
-	public double frear(int velocidadeAtual) {
-		int qtdFreio = 0;
-		
-		if(velocidadeAtual >= getFrenagem()) {
-			qtdFreio = (int) (velocidadeAtual / getFrenagem());
-		}else {
-			velocidadeAtual = 0;
-		}
-		
-		return qtdFreio;
+	@Override
+	public int getCapacidadeMaximaDeCombustivel() {
+		// TODO Auto-generated method stub
+		return 25;
 	}
 	    
+	@Override
+	public int getAutonomia() {
+		// TODO Auto-generated method stub
+		return 16;
+	}
+	
+	@Override
+	public int getVelocidadeMaxima() {
+		// TODO Auto-generated method stub
+		return 220;
+	}
+	@Override
+	public Double getFrenagem() {
+		// TODO Auto-generated method stub
+		return Math.pow(getVelocidadeAtual(), 2)/250*0.10;
+	}
+	
+	@Override
+	public Double getAceleracao() {
+		// TODO Auto-generated method stub
+		return 20.0;
+	}
+	
 }
