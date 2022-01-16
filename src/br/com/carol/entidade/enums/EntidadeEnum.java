@@ -13,9 +13,9 @@ public enum EntidadeEnum {
 	MOTO1(4, "Moto","Ducati 1198 S", new Moto()),
 	MOTO2(5, "Moto","Ducati 620 Sport", new Moto()),
 	MOTO3(6, "Moto","Indian Chief Dark Horse", new Moto()),
-	CAMINHAO1(7,"Caminh�o", "Volvo FH 540", new Caminhao()),
-	CAMINHAO2(8, "Caminh�o","Scania R450", new Caminhao()),
-	CAMINHAO3(9, "Caminh�o","Scania R500", new Caminhao());
+	CAMINHAO1(7,"Caminhao", "Volvo FH 540", new Caminhao()),
+	CAMINHAO2(8, "Caminhao","Scania R450", new Caminhao()),
+	CAMINHAO3(9, "Caminhao","Scania R500", new Caminhao());
 	
 
 	private int id;

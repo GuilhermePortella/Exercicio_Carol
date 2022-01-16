@@ -7,7 +7,7 @@ public abstract class Veiculo implements IVeiculo {
 
 	public String tipo;
 	public String modelo;
-	public int aceleracao=0;
+	public Double aceleracao=0.0;
  	protected Integer autonomia;
 	protected Double frenagem =0.0;
 	protected Double distanciaPercorrida =0.0;
@@ -92,11 +92,11 @@ public abstract class Veiculo implements IVeiculo {
 		this.modelo = modelo;
 	}
 
-	public int getAceleracao() {
+	public Double getAceleracao() {
 		return aceleracao;
 	}
 
-	public void setAceleracao(int aceleracao) {
+	public void setAceleracao(Double aceleracao) {
 		this.aceleracao = aceleracao;
 	}
 

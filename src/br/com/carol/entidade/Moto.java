@@ -14,15 +14,44 @@ public class Moto extends Veiculo{
         return null;
     }
 	    
-	@Override
-	public int getCapacidadeMaximaDeCombustivel() {
-		
-		
-		if(getAceleracao() >= 3) {
-			int vel1 = (int) (getVelocidadeAtual()/getAceleracao());
+	public void velocidade() {
+
+		Double acelerar = getAceleracao();
+		Double velocidade = getVelocidadeAtual();
+
+		if (acelerar < 3) {
+			System.out.println("É preciso ter no mínimo 3 acelerações");
+		} else {
+			for (int i = 0; i < acelerar; i++) {
+				if (velocidade >= getVelocidadeMaxima()) {
+					
+					velocidade = (double) getVelocidadeMaxima();
+					
+					setVelocidadeAtual(velocidade);
+					
+				} else {
+					
+					velocidade += getAceleracao();
+					
+					setVelocidadeAtual(500.0);
+					
+				}
+			}
 		}
 		
-		return getCapacidadeMaximaDeCombustivel();
+	}
+	
+	
+	public double frear(int velocidadeAtual) {
+		int qtdFreio = 0;
+		
+		if(velocidadeAtual >= getFrenagem()) {
+			qtdFreio = (int) (velocidadeAtual / getFrenagem());
+		}else {
+			velocidadeAtual = 0;
+		}
+		
+		return qtdFreio;
 	}
 	    
 }
