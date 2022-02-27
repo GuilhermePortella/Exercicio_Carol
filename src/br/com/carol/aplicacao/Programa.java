@@ -28,7 +28,6 @@ public class Programa {
 			System.out.println("              MENU            ");
 			System.out.println("______________________________");
 
-			// Ve�culos a serem constru�dos e testados:
 			System.out.println();
 
 			for (Integer Key : veiculos.keySet()) {
