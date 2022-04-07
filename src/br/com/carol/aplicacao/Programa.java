@@ -21,7 +21,7 @@ public class Programa {
 		boolean sair = false;
 
 		while (sair == false) {
-			System.out.println("Sistema montadora de ve�culos");
+			System.out.println("Sistema montadora de veiculos");
 			System.out.println("______________________________");
 			System.out.println();
 
@@ -43,7 +43,7 @@ public class Programa {
 				System.out.println();
 				System.out.println("______________________________");
 				System.out.println();
-				System.out.println("Escolha o ve�culo n� " + veiculoCount + " : ");
+				System.out.println("Escolha o veiculos no " + veiculoCount + " : ");
 				veiculo = console.nextInt();
 				if (veiculo == 0) {
 					sair = true;
