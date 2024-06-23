@@ -1,11 +1,11 @@
-package br.guilherme.api_restful;
+package br.guilherme.api_restful_maven;
 
 /**
  *
  * @author Guilherme
  */
 public class Pessoa {
-    
+
     private int id;
     private String nome;
     private int idade;
@@ -33,4 +33,5 @@ public class Pessoa {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
 }
