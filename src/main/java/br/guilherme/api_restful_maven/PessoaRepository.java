@@ -1,4 +1,4 @@
-package br.guilherme.api_restful;
+package br.guilherme.api_restful_maven;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,10 +20,9 @@ public class PessoaRepository {
         return pessoas.get(id);
     }
     
-    public void Add(final Pessoa pessoa){
-        if(pessoa.getId() == 0){
+    public void Add(final Pessoa pessoa) {
+        if(pessoa.getId() == 0 )
             pessoa.setId(generateId(pessoas.size() + 1));
-        }
         pessoas.put(pessoa.getId(), pessoa);
     }
     
